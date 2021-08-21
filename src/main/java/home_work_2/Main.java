@@ -46,20 +46,24 @@ public class Main {
 
         //Вызываем метод Метод
 
-        Metod(myArray);
-        Metod(myArray1);
-        Metod(myArray2);
-        Metod(myArray3);
+        metod(myArray);
+        metod(myArray1);
+        metod(myArray2);
+        metod(myArray3);
     }
 
-    public static void Metod(String[][] Array) {
+    public static void metod(String[][] Array) {
         int i, j;
         System.out.println("\nОбрабатываем массив:" + Arrays.deepToString(Array));
 // проверяем размер массива
         try {
-            if (Array[0].length != 4 || Array.length != 4)
+            if (Array.length != 4)
 //Если не совпадает создаём  исключение MyArraySizeException
-                throw new MyArraySizeException("Размерность массива не 4х4! " + " В массиве - " + Array.length + " строк");
+            throw new MyArraySizeException("Размерность массива не 4х4! " + " В массиве - " + Array.length + " строк");
+            for (String[] Array1:Array) {
+                if (Array.length != 4)
+                    throw new MyArraySizeException("Размерность массива не 4х4! " + " В массиве - " + Array.length + " строк");
+            }
         }
         // Если поймали исключения MyArraySizeException, то выводим предупреждение и выходим из Метода
         catch (MyArraySizeException e) {
